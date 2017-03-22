@@ -2,11 +2,11 @@ import java.util.function.*;
 import java.lang.*;
 import java.util.*;
 
-public class Parser {
+public class HTMLParser {
   int pos;
   String input;
 
-  public Parser(String source) {
+  public HTMLParser(String source) {
     pos = 0;
     input = source;
   } 

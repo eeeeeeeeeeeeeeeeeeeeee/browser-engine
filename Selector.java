@@ -1,10 +1,8 @@
-public class SimpleSelector extends Selector {
-  public String tagName;
-  public String id;
-  public Sting[] classNames;
+public class Selector {
 
-  public Selector(name, idName, classTitle) {
-    // change these later
+  public Selector() {
 
   }
 }
+
+
