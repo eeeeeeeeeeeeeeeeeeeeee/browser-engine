@@ -11,8 +11,8 @@ public class CSSParser {
   }
 
   public static void main(String[] args) {
-    CSSParser parsie = new CSSParser("ff0000");
-    System.out.println(parsie.parseHexPair());
+    CSSParser parsie = new CSSParser("#ff0000");
+    System.out.println(parsie.parseColor());
   }
 
 /*
@@ -84,17 +84,31 @@ public class CSSParser {
     return Integer.parseInt(pair, 16);
   } 
 
-  private Value parseColor() {
+  private Color parseColor() {
     char octothorp = this.consumeChar();
     if(octothorp != '#') {
-      throw new ArgumentError("hex color must start with #");
+      throw new AssertionError("hex color must start with #");
     } else {
       int R = this.parseHexPair();
       int G = this.parseHexPair();
       int B = this.parseHexPair();
 
-      return new Value();
+      return new Color(R, G, B, 255);
     }
+  }
+
+  // in progress - necessary?
+  /*
+  private Unit parseUnit() {
+    String identifier = this.parseIdentifier();
+    if(identifier.toLowerCase() == "px") {
+      return new Px();
+    }
+  }*/
+
+  // for now, only handles px units, and assumes such 
+  private Value parseLength() {
+
   }
    
   private static Boolean validIdentifierCard(char c) {
